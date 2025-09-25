@@ -6,7 +6,7 @@ pipeline{
   stages{
      stage("checkout"){
          steps{
-           sshagent(['git-ssh-key']{
+           sshagent(['git-ssh-key']){
              sh 'git clone git@github.com:siva-kumar-22/test-repo.git'
         }
         }
@@ -14,5 +14,5 @@ pipeline{
      stage("build"){
          echo "repo cloned successfully"
      }
- }
+}
 }
