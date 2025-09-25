@@ -11,8 +11,9 @@ pipeline{
         }
         }
      }
-     stage("build"){
-         echo "repo cloned successfully"
+     stage("build"){ 
+        steps{
+           echo "repo cloned successfully"
      }
 }
 }
