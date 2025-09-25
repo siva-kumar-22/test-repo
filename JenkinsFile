@@ -1,20 +1,20 @@
-pipeline{
-  agent any
-  environment{
-       wish = "good evening"
-  }
-  stages{
-     stage("checkout"){
-         steps{
-           sshagent(['git-ssh-key']){
-             sh 'git clone git@github.com:siva-kumar-22/test-repo.git'
+pipeline {
+    agent any
+    environment {
+        wish = "good evening"
+    }
+    stages {
+        stage("checkout") {
+            steps {
+                sshagent(['git-ssh-key']) {
+                    sh 'git clone git@github.com:siva-kumar-22/test-repo.git'
+                }
+            }
         }
+        stage("build") { 
+            steps {
+                echo "Repo cloned successfully"
+            }
         }
-     }
-     stage("build"){ 
-        steps{
-           echo "repo cloned successfully"
-     }
-}
-}
+    }
 }
