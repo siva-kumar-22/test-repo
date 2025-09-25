@@ -13,7 +13,7 @@ pipeline {
         }
         stage("build") { 
             steps {
-                echo "Repo cloned successfully"
+                echo "Repo cloned successfully, ${var.wish}"
             }
         }
     }
