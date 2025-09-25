@@ -6,11 +6,13 @@ pipeline{
   stages{
      stage("checkout"){
          steps{
-         script{
-            def name= "name"
-         echo "hi, ${name} , ${env.wish}"
+           sshagent(['git-ssh-key']{
+             sh 'git clone git@github.com:siva-kumar-22/test-repo.git'
         }
         }
+     }
+     stage("build"){
+         echo "repo cloned successfully"
      }
  }
 }
