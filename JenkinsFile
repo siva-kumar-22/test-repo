@@ -1,23 +1,12 @@
 pipeline {
-    agent any
-    options {
-        skipDefaultCheckout(true)   // Important to avoid Jenkins auto checkout failing
+  agent any
+  stages {
+    stage('checkout') {
+      steps {
+        git branch: 'main',
+            credentialsId: 'git-ssh-key',
+            url: 'git@github.com:siva-kumar-22/test-repo.git'
+      }
     }
-    environment {
-        wish = "good evening"
-    }
-    stages {
-        stage("checkout") {
-            steps {
-                sshagent(['git-ssh-key']) {
-                    sh 'git clone git@github.com:siva-kumar-22/test-repo.git'
-                }
-            }
-        }
-        stage("build") {
-            steps {
-                echo "Repo cloned successfully. ${env.wish}"
-            }
-        }
-    }
+  }
 }
