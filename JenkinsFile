@@ -1,11 +1,12 @@
 pipeline{
-agent any
-def wish = "good Evening"
-stages{
-stage("checkout"){
-  steps{
-      echo "checkout is, ${wish}"
-}
-}
-}
+  agent any
+  environment{
+       wish = "good evening"
+  }
+  stages{
+     stage("checkout"){
+         def name= "name"
+         echo ("hi, ${name} , ${env.wish})
+     }
+ }
 }
