@@ -4,7 +4,7 @@ def wish = "good Evening"
 stages{
 stage("checkout"){
   steps{
-      echo "checkout is ${wish}"
+      echo "checkout is, ${wish}"
 }
 }
 }
