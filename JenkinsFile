@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout(true)   // Important to avoid Jenkins auto checkout failing
+    }
     environment {
         wish = "good evening"
     }
@@ -11,9 +14,9 @@ pipeline {
                 }
             }
         }
-        stage("build") { 
+        stage("build") {
             steps {
-                echo "Repo cloned successfully, ${var.wish}"
+                echo "Repo cloned successfully. ${env.wish}"
             }
         }
     }
