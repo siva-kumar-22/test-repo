@@ -5,8 +5,10 @@ pipeline{
   }
   stages{
      stage("checkout"){
-         def name= "name"
+         script{
+            def name= "name"
          echo ("hi, ${name} , ${env.wish})
+        }
      }
  }
 }
